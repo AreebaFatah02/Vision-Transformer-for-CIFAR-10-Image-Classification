@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #4CAF50;
+            margin-top: 50px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            flex-direction: column;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 300px;
+        }
+        input[type="file"], select, button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        input[type="file"] {
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        select {
+            background-color: #f9f9f9;
+        }
+        button[type="submit"] {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload an Image for Classification</h1>
+    <div class="container">
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <select name="model_choice">
+                <option value="vit">Vision Transformer</option>
+                <option value="cnn_mlp">Hybrid CNN-MLP</option>
+                <option value="resnet">ResNet</option>
+            </select>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
